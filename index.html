@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Krub:400,400i,500,500i,600,600i,700,700i&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="calculator-container">
+        <div class="mortgage-calculator-container">
+          <div class="input-field-container">
+            <div class="row" style="margin: 0;">
+              <div class="col-md-10 order-md-1 input-sub-container">
+                <div class="py-5 text-center">
+                  <h2>Mortgage Calculator</h2>
+                  <p class="lead">Calculate your mortgage</p>
+                </div>
+                <form class="needs-validation" id="mortgage-form">
+                  <div class="mb-3">
+                    <label for="mortgage-principal-amount"
+                      >Mortgage Principal Amount</label
+                    >
+                    <div class="mortgage-input-container">
+                      <div class="dollar-sign">$</div>
+                      <input
+                        type="text"
+                        class="form-control currency-mask"
+                        id="mortgage-principal-amount"
+                        placeholder="0"
+                      />
+                    </div>
+                    <div id="mortgage-amount-error-message"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="interest-rate">Interest Rate</label>
+                    <div class="interest-rate-input-container">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="interest-rate"
+                        placeholder="eg 3.25"
+                      />
+                      <div class="interest-percentage">%</div>
+                    </div>
+                    <div id="interest-rate-error-message"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="mortgage-term">Mortgage Term</label>
+                    <select
+                      class="custom-select d-block w-100"
+                      id="mortgage-term"
+                    >
+                      <option value="">Choose your mortgage term</option>
+                      <option value="1">1 year</option>
+                      <option value="2">2 years</option>
+                      <option value="3">3 years</option>
+                      <option value="4">4 years</option>
+                      <option value="5">5 years</option>
+                    </select>
+                    <div id="mortgage-term-error-message"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="payment-frequency">Payment Frequency</label>
+                    <select
+                      class="custom-select d-block w-100"
+                      id="payment-frequency"
+                    >
+                      <option value="">Choose your payment frequency</option>
+                      <option value="52">Weekly</option>
+                      <option value="26">By-Weekly</option>
+                      <option value="24">Semi-Monthly</option>
+                      <option value="12">Monthly</option>
+                    </select>
+                    <div id="payment-frequency-error-message"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="amortization-period">Amortization Period</label>
+                    <select
+                      class="custom-select d-block w-100"
+                      id="amortization-period"
+                    >
+                      <option value="">Choose your amortization period</option>
+                      <option value="20">20 years</option>
+                      <option value="25">25 years</option>
+                      <option value="30">30 years</option>
+                    </select>
+                    <div id="amortization-period-error-message"></div>
+                  </div>
+                  <hr class="mb-4" />
+
+                  <button
+                    class="btn btn-primary btn-lg btn-block"
+                    id="calculateMortgage"
+                    type="submit"
+                  >
+                    Calculate My payments
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="output-field-container" id="output-field-container">
+            <div class="monthly-mortgage-amount">
+              <p>
+                Your mortgage payment will be <br /><span
+                  id="display-monthly-mortgage-amount"
+                ></span
+                ><br />Monthly
+              </p>
+            </div>
+            <div class="mortgage-detailed-info">
+              <h4>Interest cost</h4>
+              <div class="amount-with-conditions">
+                <div class="amount-for-current-term">
+                  <span id="amount-for-current-term"></span><br />
+                  <p>For current term</p>
+                </div>
+                <div class="border"></div>
+                <div class="amount-at-amortization">
+                  <span id="amount-at-amortization"></span><br />
+                  <p>At amortization</p>
+                </div>
+                <div class="border"></div>
+                <div class="amount-at-end-of-term-balance">
+                  <span id="amount-at-end-of-term-balance"></span><br />
+                  <p>End of term balance</p>
+                </div>
+              </div>
+            </div>
+            <div class="graph-table-container">
+              <div class="graph-table-header">
+                <p>Amortization</p>
+                <div
+                  class="btn-group btn-group-toggle graph-change-button"
+                  data-toggle="buttons"
+                >
+                  <label class="btn btn-primary active" id="graph-show-btn">
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option1"
+                      autocomplete="off"
+                      checked
+                    />
+                    Graph
+                  </label>
+                  <label class="btn btn-primary" id="chart-show-btn">
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    Chart
+                  </label>
+                </div>
+              </div>
+              <div class="graph-table-main">
+                <div class="chart-container">
+                  <canvas id="myBarChart"></canvas>
+                </div>
+                <table class="table table-striped amortization-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Period</th>
+                      <th scope="col">Payment</th>
+                      <th scope="col">Principal</th>
+                      <th scope="col">Interest</th>
+                      <th scope="col">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="amortization-table"></tbody>
+                </table>
+              </div>
+              <div class="graph-table-footer">
+                <button class="btn btn-danger" style="border-radius: 25px;">
+                  Get started
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/69099553d4.js"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/mortgage-calculator.js"></script>
+  </body>
+</html>

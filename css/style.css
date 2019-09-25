@@ -1,0 +1,438 @@
+.calculator-container {
+  margin-top: 100px;
+}
+
+.mortgage-calculator-container {
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.row {
+  justify-content: center;
+  width: 100%;
+  height: 750px;
+}
+.input-field-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #e1e8f2;
+  max-height: 750px;
+}
+div.py-5.text-center {
+  padding-bottom: 25px !important;
+}
+#mortgage-amount-error-message,
+#interest-rate-error-message,
+#mortgage-term-error-message,
+#payment-frequency-error-message,
+#amortization-period-error-message {
+  color: red;
+  font-size: 0.8rem;
+}
+.mortgage-input-container,
+.interest-rate-input-container {
+  display: flex;
+  align-items: center;
+}
+.mortgage-input-container input {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.interest-rate-input-container input {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.dollar-sign,
+.interest-percentage {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.interest-percentage {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.output-field-container {
+  flex: 1;
+  background-color: #3260a8;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
+
+.border {
+  background-color: white;
+  width: 1px;
+  height: 50px;
+}
+form.needs-validation {
+  padding-bottom: 53px;
+}
+form.needs-validation .mb-3 {
+  height: 80px;
+}
+.monthly-mortgage-amount {
+  margin-top: 10px;
+  width: 80%;
+  border: 1px solid white;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.monthly-mortgage-amount p {
+  font-size: 1rem;
+}
+.monthly-mortgage-amount span {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.mortgage-detailed-info {
+  border-bottom: 1px solid white;
+  text-align: center;
+  width: 80%;
+}
+.amount-with-conditions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.amount-with-conditions span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.amount-at-end-of-term-balance,
+.amount-at-amortization,
+.amount-for-current-term {
+  padding: 0 10px;
+}
+.amount-at-end-of-term-balance p,
+.amount-at-amortization p,
+.amount-for-current-term p {
+  font-size: 0.9rem;
+}
+.graph-table-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.5rem;
+  width: 80%;
+}
+
+.graph-table-header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.graph-table-header p {
+  margin: 0;
+}
+.graph-table-header .btn {
+  padding: 2.5px 20px;
+  height: 35px;
+}
+.graph-table-main canvas {
+  min-height: 250px;
+}
+.graph-table-footer {
+  padding: 20px;
+}
+.graph-table-footer .btn {
+  padding: 10px 20px;
+}
+
+.chart-container-invisibility {
+  display: none;
+}
+.table-container-visibility {
+  display: initial !important;
+}
+/* .btn-up {
+  padding-top: 20px;
+} */
+.amortization-table {
+  display: none;
+}
+.amortization-table tbody {
+  margin-bottom: 10px;
+}
+.amortization-table tr,
+.graph-table-main td {
+  font-size: 1rem;
+  color: white;
+}
+.amortization-table thead tr th {
+  padding: 0.75rem;
+}
+@media screen and (max-width: 1200px) {
+  .mortgage-calculator-container {
+    width: 100%;
+  }
+  .amount-with-conditions span {
+    font-size: 1.2rem;
+  }
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .calculator-container {
+    margin-top: 0px;
+  }
+  .mortgage-calculator-container {
+    flex-direction: column;
+  }
+  .input-field-container {
+    width: 100%;
+  }
+  .input-field-container .input-sub-container {
+    width: 83.333%;
+  }
+  .input-field-container h2,
+  .amount-with-conditions span,
+  .mortgage-detailed-info h4 {
+    font-size: 2rem;
+  }
+
+  input#mortgage-principal-amount {
+    line-height: 2;
+  }
+  .output-field-container {
+    width: 100%;
+  }
+  .monthly-mortgage-amount {
+    margin-top: 40px;
+  }
+  .input-field-container p,
+  .mortgage-detailed-info,
+  .monthly-mortgage-amount p {
+    font-size: 1.5rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 1.5rem;
+  }
+  #display-monthly-mortgage-amount {
+    font-size: 4rem;
+  }
+  .graph-table-header {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .graph-table-header .graph-change-button {
+    width: 30%;
+  }
+  .graph-table-header .graph-change-button label {
+    font-size: 1.3rem;
+    height: 100%;
+  }
+  /* table */
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 1.5rem;
+  }
+  .amortization-table thead tr th {
+    padding: 0.75rem 1.7rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 1.3rem;
+  }
+  .amortization-table thead tr th {
+    padding: 0.75rem 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .amount-with-conditions span {
+    font-size: 1.7rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 1.3rem;
+  }
+  .graph-table-header .graph-change-button {
+    width: 40%;
+  }
+  .graph-table-header .graph-change-button label {
+    font-size: 1rem;
+    height: 100%;
+    padding: 5px 0;
+    width: 0;
+  }
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 1.2rem;
+  }
+  .amortization-table thead tr th {
+    padding: 0.75rem 1.2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .mortgage-detailed-info h4 {
+    font-size: 1.5rem;
+  }
+  .amount-with-conditions span {
+    font-size: 1.5rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 1.1rem;
+  }
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 1.1rem;
+  }
+  .amortization-table thead tr th {
+    padding: 0.75rem 1.1rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .amount-with-conditions span {
+    font-size: 1.3rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .graph-table-main th,
+  .graph-table-main td {
+    font-size: 0.9rem;
+  }
+  .amortization-table thead tr th {
+    padding: 0.75rem 0.8rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .amount-with-conditions span {
+    font-size: 1.2rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 0.8rem;
+  }
+  .graph-table-main th {
+    font-size: 0.9rem;
+  }
+  .graph-table-main td {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .graph-table-header .graph-change-button {
+    width: 40%;
+  }
+  .graph-table-header .graph-change-button label {
+    font-size: 0.8rem;
+    height: 100%;
+    padding: 5px 0;
+    width: 0;
+  }
+  #display-monthly-mortgage-amount {
+    font-size: 3rem;
+  }
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 0.7rem;
+  }
+  .amount-with-conditions span,
+  .mortgage-detailed-info h4 {
+    font-size: 1.1rem;
+  }
+  .graph-table-header {
+    font-size: 1.4rem;
+  }
+
+  .amortization-table thead tr th,
+  .amortization-table tbody tr td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .graph-table-main th {
+    font-size: 0.8rem;
+  }
+  .graph-table-main td {
+    font-size: 0.7rem;
+  }
+  .amortization-table thead tr th,
+  .amortization-table tbody tr td {
+    padding: 0.75rem 0.4rem;
+  }
+  .monthly-mortgage-amount p {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .amount-at-end-of-term-balance p,
+  .amount-at-amortization p,
+  .amount-for-current-term p {
+    font-size: 0.6rem;
+  }
+  .input-field-container h2,
+  .amount-with-conditions span,
+  .mortgage-detailed-info h4 {
+    font-size: 0.9rem;
+  }
+  .graph-table-main th {
+    font-size: 0.75rem;
+  }
+  .graph-table-main td {
+    font-size: 0.65rem;
+  }
+  .amortization-table thead tr th,
+  .amortization-table tbody tr td {
+    padding: 0.75rem 0.3rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .amount-with-conditions span {
+    font-size: 0.8rem;
+  }
+  button#calculateMortgage {
+    font-size: 1rem;
+  }
+  .graph-table-main th {
+    font-size: 0.7rem;
+  }
+  .graph-table-main td {
+    font-size: 0.6rem;
+  }
+  .monthly-mortgage-amount p {
+    font-size: 1.1rem;
+  }
+}
